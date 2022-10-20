@@ -42,10 +42,16 @@ const viewList = element => {
     const renderpizza =  pizzasList.find( Pizza => Pizza.id == pizzaId); 
     if (renderpizza == undefined)
     {
-        list = [...list, {id: undefined, nombre: "No existe el numero de pizza", precio:0}]
+        list = [...list,
+           {id: undefined,
+             nombre: "No existe el numero de pizza", 
+             precio:0}]
     }else
     {
-        list = [...list, {id: renderpizza.id, nombre: renderpizza.nombre, precio : renderpizza.precio}];
+        list = [...list, 
+            {id: renderpizza.id,
+             nombre: renderpizza.nombre, 
+             precio : renderpizza.precio}];
     }
 }
   listRenders(list)

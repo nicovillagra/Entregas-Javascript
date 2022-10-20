@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,25 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
-    <h1>HOLA MUNDO JAVASCRIPT</h1>
+    <section class="container">
+        <div class="container-input">
+            <form id="form-list">
+                <h2>Numero de tu pizza</h2>
+                <div>
+                 <input type="number" id="pizzas">
+                </div>
+                <button class="button" id="button">Agregar Pizza</button>
+            </form>
+        </div>
+    </section>
+    <section class="pizza-container-render">
+        <div id="pizza-container">
+            <small></small>
+        </div>
+    </section>
     <script src="./main.js"></script>
 </body>
+
 </html>

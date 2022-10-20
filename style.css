@@ -1,6 +1,11 @@
+*{font-family:font;}
 body{
     background-color: black;
     
+}
+@font-face {
+    font-family:font;
+    src: url(./assets/LEMONMILK-RegularItalic.otf);
 }
 .container{
     display: flex;
@@ -14,7 +19,7 @@ input {
 }
 h2{
     color: black;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family:font;
 }
 button{
     background-color:black;

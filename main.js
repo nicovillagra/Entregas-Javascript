@@ -16,11 +16,11 @@ const containerPizzas = document.getElementById("pizza-container")
 const form = document.getElementById("form-list")
 
 
-function savePizzaInLocalStorage(pizza,key){
+function savePizza(pizza,key){
   localStorage.setItem(key, JSON.stringify(pizza))
 }
 
-function getLastPizzaFromLocalStorage(key){
+function pizzaLast(key){
   List = JSON.parse(localStorage.getItem(key)) || []
   List = [...List]
   const lastPizza = List[List.length-1]
@@ -57,33 +57,32 @@ function pizzaContainer(pizza){
   </div>
   `
 }
-const listRenders = list => {
-  containerPizzas.innerHTML = list.map(list => pizzaContainer(list)).join('')
-};
 
 function viewList(event){
   event.preventDefault();
   
   const idPizza = input.value
+  if(idPizza){
       const selectorPizza = findId(idPizza);
-      if(input.value === ""){
-        renderizar(errorPizza)
-        localStorage.clear
-      }else if (!selectorPizza[0]){
-        renderizar(errorPizzaLast)
-        localStorage.clear
-      }
-      else{
+      
+      if(selectorPizza.length){
+        savePizza(selectorPizza, "pizza")
         renderizar(pizzaContainer(selectorPizza[0]))
-
+        input.value = ""
+      }else{
+          renderizar(errorPizza())
       }
+  }else{
+      renderizar(errorPizzaLast())
+
+  }
   console.log(idPizza)
 
 }
 console.log(viewList)
 
 const init = () => {
-  const lastPizza = getLastPizzaFromLocalStorage("pizza");
+  const lastPizza = pizzaLast("pizza");
   if(lastPizza){
     renderizar(pizzaContainer(lastPizza))
   }
@@ -91,7 +90,7 @@ const init = () => {
 }
 
 init();
-//No pude arreglar el error al cambiar las pizzas
+
 
 
 

@@ -65,20 +65,18 @@ function viewList(event){
   event.preventDefault();
   
   const idPizza = input.value
-  if(idPizza){
       const selectorPizza = findId(idPizza);
-      
-      if(selectorPizza.length){
-        savePizzaInLocalStorage(selectorPizza, "pizza")
-        renderizar(pizzaContainer(selectorPizza))
-        input.value = ""
-      }else{
-          renderizar(errorPizza())
+      if(input.value === ""){
+        renderizar(errorPizza)
+        localStorage.clear
+      }else if (!selectorPizza[0]){
+        renderizar(errorPizzaLast)
+        localStorage.clear
       }
-  }else{
-      renderizar(errorPizzaLast())
+      else{
+        renderizar(pizzaContainer(selectorPizza[0]))
 
-  }
+      }
   console.log(idPizza)
 
 }
